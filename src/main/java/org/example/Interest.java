@@ -1,9 +1,15 @@
 package org.example;
 
-public class Interest {
+class Interest {
     private double principal;
     private double rate;
     private double years;
+
+    Interest(double principal, double rate, double years) {
+        this.principal = principal;
+        this.rate = rate;
+        this.years = years;
+    }
 
     double getSimpleInterest() {
         return principal * rate * years / 100;
