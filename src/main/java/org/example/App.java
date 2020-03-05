@@ -1,5 +1,8 @@
 package org.example;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -7,13 +10,16 @@ import java.util.Scanner;
 
 public class App {
     private static Scanner scanner = new Scanner(System.in);
+    private static final Logger LOGGER = LogManager.getLogger(App.class);
     private static PrintStream printStream = new PrintStream(new FileOutputStream(FileDescriptor.out));
 
     public static void main(String[] args) throws Exception {
+        LOGGER.info("Main Method started");
         printStream.println("Enter 1 to calculate Simple or Compound Interest\n" +
                 "Enter 2 to calculate House Construction cost\n" +
                 "Enter 0 to exit");
         execute(scanner.nextInt());
+        LOGGER.debug("Main method ends");
     }
 
     static void execute(int choice) throws Exception {
